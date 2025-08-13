@@ -1,4 +1,5 @@
-target/
+# === Maven ===
+/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -7,11 +8,49 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://maven.apache.org/wrapper/#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
+# === Spring Boot ===
+/bin/
+/logs/
+/tmp/
+/*.log
+
+# === IDEs ===
+## IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+## Eclipse
 .classpath
+.project
+.settings/
+.metadata/
+bin/
+
+## VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# === OS Files ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Java ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Environment Variables ===
+.env
+*.env.local
