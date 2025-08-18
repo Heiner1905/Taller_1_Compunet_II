@@ -1,11 +1,30 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Conductor {
     private String id;
     private String nombre;
-    private String cargo;
-    private String tipoDeIdentificacion;
+    private TipoDeCargo cargo;
+    private TipoDeID tipoDeIdentificacion;
     private String numeroDeIdentificacion;
+
+    //Relation 1:N
+    private List<Vehiculo> vehiculos;
+
+    public Conductor(String id, String nombre, TipoDeCargo cargo, TipoDeID tipoDeIdentificacion,  String numeroDeIdentificacion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cargo = cargo;
+        this.tipoDeIdentificacion = tipoDeIdentificacion;
+        this.numeroDeIdentificacion = numeroDeIdentificacion;
+        this.vehiculos = new ArrayList<>();
+    }
+
+    public List<Vehiculo> getVehiculos(){
+        return vehiculos;
+    }
 
     public String getId() {
         return id;
@@ -23,19 +42,19 @@ public class Conductor {
         this.nombre = nombre;
     }
 
-    public String getCargo() {
+    public TipoDeCargo getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(TipoDeCargo cargo) {
         this.cargo = cargo;
     }
 
-    public String getTipoDeIdentificacion() {
+    public TipoDeID getTipoDeIdentificacion() {
         return tipoDeIdentificacion;
     }
 
-    public void setTipoDeIdentificacion(String tipoDeIdentificacion) {
+    public void setTipoDeIdentificacion(TipoDeID tipoDeIdentificacion) {
         this.tipoDeIdentificacion = tipoDeIdentificacion;
     }
 

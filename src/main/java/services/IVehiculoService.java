@@ -10,7 +10,9 @@ public interface IVehiculoService {
 
     Vehiculo findByPlaca(String placa);
 
-    void addVehiculoToConductor(Vehiculo vehiculo);
+    void addVehiculoToConductor(String placa, int cilindraje, int tipoDeCombustible, String numeroDeMotor, String marca, int modelo, String conductorID, int tipoIDConductor);
 
-    void deleteVehiculoByPlaca(String placa);
+    void deleteVehiculo(String placa);
+
+    List<Vehiculo> getRemovedVehiculos();
 }

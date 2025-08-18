@@ -2,27 +2,44 @@ package repositories.impl;
 
 import model.Vehiculo;
 import repositories.IVehiculoRepository;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class VehiculoRepositoryImpl implements IVehiculoRepository {
+
+    private List<Vehiculo> vehiculos = new ArrayList<>();
+
+    private List<Vehiculo> vehiculosRemoved = new ArrayList<>();
+
+    @Override
+    public List<Vehiculo> getRemovedVehiculos (){
+        return vehiculosRemoved;
+    }
+
     @Override
     public List<Vehiculo> findAll() {
-        return List.of();
+        return vehiculos;
     }
 
     @Override
     public Vehiculo findByPlaca(String placa) {
-        return null;
+        Vehiculo vehiculoReturn = null;
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.getPlaca().equalsIgnoreCase(placa)) {
+                vehiculoReturn = vehiculo;
+            }
+        }
+        return vehiculoReturn;
     }
 
     @Override
     public void addVehiculoToConductor(Vehiculo vehiculo) {
-
+        vehiculos.add(vehiculo);
     }
 
     @Override
-    public void deleteVehiculoByPlaca(String placa) {
-
+    public void deleteVehiculo(Vehiculo vehiculo) {
+        vehiculosRemoved.add(vehiculo);
+        vehiculos.remove(vehiculo);
     }
 }

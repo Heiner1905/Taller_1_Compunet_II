@@ -3,21 +3,31 @@ package repositories.impl;
 import model.Conductor;
 import repositories.IConductorRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConductorRepositoryImpl implements IConductorRepository {
+
+    private List<Conductor> conductores = new ArrayList<>();
+
     @Override
     public List<Conductor> findAll() {
-        return List.of();
+        return conductores;
     }
 
     @Override
     public void addConductor(Conductor conductor) {
-
+        conductores.add(conductor);
     }
 
     @Override
     public Conductor findConductorByNumeroDeIdentificacion(String numeroDeIdentificacion) {
-        return null;
+        Conductor conductorReturn = null;
+        for (Conductor conductor : conductores) {
+            if(conductor.getNumeroDeIdentificacion().equalsIgnoreCase(numeroDeIdentificacion)){
+                conductorReturn = conductor;
+            }
+        }
+        return conductorReturn;
     }
 }

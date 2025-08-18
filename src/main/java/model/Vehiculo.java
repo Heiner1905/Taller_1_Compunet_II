@@ -4,10 +4,23 @@ public class Vehiculo {
     private String id;
     private String placa;
     private int cilindraje;
-    private String tipoDeCombustible;
+    private TipoDeCombustible tipoDeCombustible;
     private String numeroDeMotor;
     private String marca;
-    private String modelo;
+    private int modelo;
+
+    private Conductor conductor;
+
+    public Vehiculo(String id, String placa, int cilindraje, TipoDeCombustible tipoDeCombustible, String numeroDeMotor, String marca, int modelo, Conductor conductor) {
+        this.id = id;
+        this.placa = placa;
+        this.cilindraje = cilindraje;
+        this.tipoDeCombustible = tipoDeCombustible;
+        this.numeroDeMotor = numeroDeMotor;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.conductor = conductor;
+    }
 
     public String getId() {
         return id;
@@ -33,11 +46,11 @@ public class Vehiculo {
         this.cilindraje = cilindraje;
     }
 
-    public String getTipoDeCombustible() {
+    public TipoDeCombustible getTipoDeCombustible() {
         return tipoDeCombustible;
     }
 
-    public void setTipoDeCombustible(String tipoDeCombustible) {
+    public void setTipoDeCombustible(TipoDeCombustible tipoDeCombustible) {
         this.tipoDeCombustible = tipoDeCombustible;
     }
 
@@ -57,11 +70,19 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    public String getModelo() {
+    public int getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(int modelo) {
         this.modelo = modelo;
+    }
+
+    public Conductor getConductor(){
+        return this.conductor;
+    }
+
+    public void setConductor(Conductor conductor){
+        this.conductor = conductor;
     }
 }

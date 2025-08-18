@@ -12,5 +12,7 @@ public interface IVehiculoRepository {
 
     void addVehiculoToConductor(Vehiculo vehiculo);
 
-    void deleteVehiculoByPlaca(String placa);
+    void deleteVehiculo(Vehiculo vehiculo);
+
+    List<Vehiculo> getRemovedVehiculos();
 }

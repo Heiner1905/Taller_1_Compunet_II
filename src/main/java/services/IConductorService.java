@@ -8,7 +8,7 @@ public interface IConductorService {
 
     List<Conductor> findAll();
 
-    void addConductor(Conductor conductor);
+    void addConductor(String nombre, int cargo, int tipoDeIdentificacion,  String numeroDeIdentificacion);
 
-    Conductor findConductorByNumeroDeIdentificacion(String numeroDeIdentificacion);
+    Conductor findConductorByNumeroDeIdentificacion(String numeroDeIdentificacion, int tipoDeIdentificacion);
 }
