@@ -11,4 +11,8 @@ public interface IConductorService {
     void addConductor(String nombre, int cargo, int tipoDeIdentificacion,  String numeroDeIdentificacion);
 
     Conductor findConductorByNumeroDeIdentificacion(String numeroDeIdentificacion, int tipoDeIdentificacion);
+
+    void init();
+
+    void destroy();
 }

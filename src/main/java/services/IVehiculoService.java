@@ -15,4 +15,8 @@ public interface IVehiculoService {
     void deleteVehiculo(String placa);
 
     List<Vehiculo> getRemovedVehiculos();
+
+    void init();
+
+    void destroy();
 }

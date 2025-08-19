@@ -124,4 +124,30 @@ public class VehiculoServiceImpl implements IVehiculoService {
         conductor.getVehiculos().remove(vehiculo);
         vehiculoRepository.deleteVehiculo(vehiculo);
     }
+
+    @Override
+    public void init() {
+        System.out.println("Cargando nueve vehículos iniciales ...");
+
+        addVehiculoToConductor("ABC123", 1600, 1, "MOTOR1234561", "Toyota", 2020, "100200300", 1);
+        addVehiculoToConductor("DEF456", 2000, 2, "MOTOR6543211", "Mazda", 2019, "100200300", 1);
+        addVehiculoToConductor("GHI789", 1800, 3, "MOTOR9876541", "Chevrolet", 2021, "100200300", 1);
+
+        addVehiculoToConductor("JKL111", 2200, 1, "MOTOR1112221", "Kia", 2018, "AB1234567", 2);
+        addVehiculoToConductor("MNO222", 2500, 4, "MOTOR3334441", "Hyundai", 2022, "AB1234567", 2);
+        addVehiculoToConductor("PQR333", 1400, 1, "MOTOR5556661", "Renault", 2020, "AB1234567", 2);
+
+        addVehiculoToConductor("STU444", 2000, 2, "MOTOR7778881", "Nissan", 2017, "123987654", 3);
+        addVehiculoToConductor("VWX555", 1600, 3, "MOTOR9990001", "Honda", 2021, "123987654", 3);
+        addVehiculoToConductor("YZA666", 3000, 4, "MOTOR1122331", "Ford", 2019, "123987654", 3);
+
+        System.out.println("Vehículos iniciales cargados exitosamente.");
+    }
+    @Override
+    public void destroy() {
+        System.out.println("Cerrando VehiculoServiceImpl. Liberando recursos...");
+        vehiculoRepository.findAll().clear();
+        vehiculoRepository.getRemovedVehiculos().clear();
+        System.out.println("VehiculoServiceImpl finalizado correctamente.");
+    }
 }

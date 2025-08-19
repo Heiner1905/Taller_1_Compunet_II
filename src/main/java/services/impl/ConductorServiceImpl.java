@@ -33,8 +33,6 @@ public class ConductorServiceImpl implements IConductorService {
         //Validaciones de los atributos
         if (nombre == null || nombre.isBlank()){
             throw new ConductorNotValidException("El nombre del conductor no puede estar vacío");
-        } else if(!nombre.matches("^[A-Za-zÁÉÍÓÚÑ ]+$")){
-            throw new ConductorNotValidException("El nombre del conductor no cumple con los caracteres valido (letras)");
         }
         //
         switch (cargo) {
@@ -124,5 +122,22 @@ public class ConductorServiceImpl implements IConductorService {
                 throw new ConductorNotFoundException("El conductor que esta buscando no existe");
         }
         return conductorReturn;
+    }
+
+    @Override
+    public void init() {
+        System.out.println("Cargando tres conductores iniciales ...");
+
+        addConductor("David Vergara", 2, 1, "100200300");
+        addConductor("Karold Mejia", 1, 2, "AB1234567");
+        addConductor("Heiner Rincón", 3, 4, "123987654");
+
+        System.out.println("Conductores iniciales cargados exitosamente.");
+    }
+    @Override
+    public void destroy() {
+        System.out.println("Cerrando ConductorServiceImpl. Liberando recursos ...");
+        conductorRepository.findAll().clear();
+        System.out.println("ConductorServiceImpl finalizado correctamente.");
     }
 }
