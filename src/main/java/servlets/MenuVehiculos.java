@@ -9,14 +9,14 @@ import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
 
-@WebServlet(name = "menuDeConductores", value = "/menu-de-conductores")
-public class MenuDeConductores extends HttpServlet {
+@WebServlet(name="menuVehiculos", value = "/menu-de-vehiculos")
+public class MenuVehiculos extends HttpServlet {
     ApplicationContext context;
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ApplicationContext context = (ApplicationContext) getServletContext().getAttribute("springContext");
-        req.getRequestDispatcher("menuConductores.jsp").forward(req, resp);
+        req.getRequestDispatcher("menuVehiculos.jsp").forward(req, resp);
     }
 }

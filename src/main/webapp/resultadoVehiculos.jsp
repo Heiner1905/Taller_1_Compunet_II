@@ -40,15 +40,15 @@
 </ul>
 
 <br>
-<!-- Botón para volver al formulario -->
+
 <form action="buscar-conductor" method="get">
     <button type="submit">Volver a buscar otro conductor</button>
 </form>
 
 <br>
-<!-- Botón para volver al menú principal -->
-<form action="index.jsp" method="get">
-    <button type="submit">Volver al menú principal</button>
+
+<form action="menu-de-conductores" method="get">
+    <button type="submit">Volver</button>
 </form>
 </body>
 </html>

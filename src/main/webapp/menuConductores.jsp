@@ -16,5 +16,10 @@
 <a href="agregar-conductor">Agregar Conductor</a><br>
 <a href="buscar-conductor">Buscar Conductor</a>
 
+<br>
+
+<form action="index.jsp" method="get">
+    <button type="submit">Volver</button>
+</form>
 </body>
 </html>

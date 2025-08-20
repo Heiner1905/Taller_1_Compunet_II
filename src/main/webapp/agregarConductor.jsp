@@ -31,6 +31,10 @@
     Número de identificación: <input type="text" name="numeroDeIdentificacion" required><br>
     <button type="submit">Agregar</button>
 </form>
+<br>
 
+<form action="menu-de-conductores" method="get">
+    <button type="submit">Volver</button>
+</form>
 </body>
 </html>

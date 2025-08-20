@@ -26,7 +26,7 @@
 </form>
 
 <br>
-<!-- Botón para volver -->
+
 <form action="menu-de-conductores" method="get">
     <button type="submit">Volver</button>
 </form>

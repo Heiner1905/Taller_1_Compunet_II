@@ -13,16 +13,16 @@ public class SpringContextLoader implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        // Se crea el ApplicationContext una sola vez
+
         context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        // Lo guardamos en el ServletContext para que todos los servlets lo usen
+
         sce.getServletContext().setAttribute("springContext", context);
-        System.out.println(">>> Spring ApplicationContext cargado en el inicio de la app");
+        System.out.println("Spring ApplicationContext cargado en el inicio de la app");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         ((ClassPathXmlApplicationContext) context).close();
-        System.out.println(">>> Spring ApplicationContext destruido");
+        System.out.println("Spring ApplicationContext destruido");
     }
 }

@@ -25,7 +25,7 @@ public class AgregarConductor extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        // Cuando el usuario entra por primera vez (GET), solo le muestro el formulario
+
         req.getRequestDispatcher("/agregarConductor.jsp").forward(req, resp);
     }
 
@@ -38,7 +38,8 @@ public class AgregarConductor extends HttpServlet {
 
         try {
             conductorService.addConductor(nombre, cargo, tipoDeIdentificacion, numeroDeIdentificacion);
-            resp.sendRedirect("menu-de-conductores"); // redirige al listado
+            req.setAttribute("mensaje", "El conductor "+nombre+ " con el ID "+numeroDeIdentificacion+" fue agregado correctamente");
+            req.getRequestDispatcher("resultado.jsp").forward(req, resp);
         } catch (Exception e) {
             req.setAttribute("error", e.getMessage());
             req.getRequestDispatcher("error.jsp").forward(req, resp);

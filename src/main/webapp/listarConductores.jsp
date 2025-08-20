@@ -23,11 +23,7 @@
     <%
         for (model.Vehiculo v : c.getVehiculos()) {
     %>
-    <li>
-        Placa: <%= v.getPlaca() %>,
-        Marca: <%= v.getMarca() %>,
-        Modelo: <%= v.getModelo() %>
-    </li>
+    <li>Placa: <%= v.getPlaca() %> | Marca: <%= v.getMarca() %> | Modelo: <%= v.getModelo()%></li>
     <%
         }
     %>
@@ -35,6 +31,11 @@
 <%
     }
 %>
+<form action="menu-de-conductores" method="get">
+    <button type="submit">Volver</button>
+</form>
+</body>
+</html>
 
 
 </body>

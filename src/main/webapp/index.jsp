@@ -13,6 +13,6 @@
 <h3>Que desea hacer?</h3>
 <a href="menu-de-conductores">Menu de conductores</a>
 <br/>
-<a href="menu-de-automoviles">Menu de automoviles</a>
+<a href="menu-de-vehiculos">Menu de automoviles</a>
 </body>
 </html>

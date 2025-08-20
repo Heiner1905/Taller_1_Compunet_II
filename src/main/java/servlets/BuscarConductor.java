@@ -19,7 +19,7 @@ public class BuscarConductor extends HttpServlet {
     @Override
     public void init() throws ServletException {
         context = (ApplicationContext) getServletContext().getAttribute("springContext");
-        conductorService = context.getBean(IConductorService.class);
+        conductorService = (IConductorService) context.getBean("conductorServiceImpl");
     }
 
     @Override
