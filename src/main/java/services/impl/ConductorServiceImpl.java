@@ -3,8 +3,12 @@ package services.impl;
 import model.Conductor;
 import model.TipoDeCargo;
 import model.TipoDeID;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repositories.IConductorRepository;
 import services.IConductorService;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 import java.util.List;
 import java.util.UUID;
@@ -12,10 +16,11 @@ import java.util.UUID;
 import exceptions.ConductorNotFoundException;
 import exceptions.ConductorNotValidException;
 
+@Service("conductorServiceImpl")
 public class ConductorServiceImpl implements IConductorService {
 
     private IConductorRepository conductorRepository;
-
+    @Autowired
     public ConductorServiceImpl(IConductorRepository conductorRepository) {
         this.conductorRepository = conductorRepository;
     }
@@ -124,7 +129,9 @@ public class ConductorServiceImpl implements IConductorService {
         return conductorReturn;
     }
 
+
     @Override
+    @PostConstruct
     public void init() {
         System.out.println("Cargando tres conductores iniciales ...");
 
@@ -135,6 +142,7 @@ public class ConductorServiceImpl implements IConductorService {
         System.out.println("Conductores iniciales cargados exitosamente.");
     }
     @Override
+    @PreDestroy
     public void destroy() {
         System.out.println("Cerrando ConductorServiceImpl. Liberando recursos ...");
         conductorRepository.findAll().clear();

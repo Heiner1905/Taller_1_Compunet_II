@@ -1,10 +1,12 @@
 package repositories.impl;
 
 import model.Vehiculo;
+import org.springframework.stereotype.Repository;
 import repositories.IVehiculoRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("vehiculoRepositoryImpl")
 public class VehiculoRepositoryImpl implements IVehiculoRepository {
 
     private List<Vehiculo> vehiculos = new ArrayList<>();

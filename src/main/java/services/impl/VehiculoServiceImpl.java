@@ -1,8 +1,12 @@
 package services.impl;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import model.Conductor;
 import model.TipoDeCombustible;
 import model.Vehiculo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repositories.IConductorRepository;
 import repositories.IVehiculoRepository;
 import services.IConductorService;
@@ -14,12 +18,12 @@ import java.util.List;
 import java.util.UUID;
 
 
-
+@Service("vehiculoServiceImpl")
 public class VehiculoServiceImpl implements IVehiculoService {
 
     private IVehiculoRepository vehiculoRepository;
     private IConductorService conductorService;
-
+    @Autowired
     public VehiculoServiceImpl(IVehiculoRepository vehiculoRepository, IConductorService conductorService) {
         this.vehiculoRepository = vehiculoRepository;
         this.conductorService = conductorService;
@@ -126,6 +130,7 @@ public class VehiculoServiceImpl implements IVehiculoService {
     }
 
     @Override
+    @PostConstruct
     public void init() {
         System.out.println("Cargando nueve vehículos iniciales ...");
 
@@ -144,6 +149,7 @@ public class VehiculoServiceImpl implements IVehiculoService {
         System.out.println("Vehículos iniciales cargados exitosamente.");
     }
     @Override
+    @PreDestroy
     public void destroy() {
         System.out.println("Cerrando VehiculoServiceImpl. Liberando recursos...");
         vehiculoRepository.findAll().clear();

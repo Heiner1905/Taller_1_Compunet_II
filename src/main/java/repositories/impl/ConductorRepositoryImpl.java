@@ -1,11 +1,13 @@
 package repositories.impl;
 
 import model.Conductor;
+import org.springframework.stereotype.Repository;
 import repositories.IConductorRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("conductorRepositoryImpl")
 public class ConductorRepositoryImpl implements IConductorRepository {
 
     private List<Conductor> conductores = new ArrayList<>();
